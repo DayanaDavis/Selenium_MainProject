@@ -20,6 +20,7 @@ public class AddRolesPage extends ObjectUtility {
     List<WebElement> permission;
     @FindBy(xpath = "//button[@class='btn btn-primary pull-right']")
     WebElement saveButton;
+
     public String getPageTitle(){
         String title=page.getPageTitle(driver);
         return title;
@@ -27,9 +28,6 @@ public class AddRolesPage extends ObjectUtility {
     public void enterRole(String role){
         wait.waitUntilVisibilityOfElement(500,driver,roleName);
         page.enterText(roleName,role);
-    }
-    public void clickOnSelectAllUser(){
-
     }
     public void givePermission(){
         for (int i=0;i<permission.size();i++){
@@ -40,6 +38,7 @@ public class AddRolesPage extends ObjectUtility {
     public RolePage clickOnSaveButton(){
         wait.waitUntilVisibilityOfElement(500,driver,saveButton);
         page.clickOnElement(saveButton);
+        wait.hardWait(5000);
         return new RolePage(driver);
     }
 

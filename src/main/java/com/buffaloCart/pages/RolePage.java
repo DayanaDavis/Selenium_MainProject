@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class RolePage extends ObjectUtility {
     WebDriver driver;
     public RolePage(WebDriver driver){
@@ -26,6 +28,15 @@ public class RolePage extends ObjectUtility {
     WebElement editRole;
     @FindBy(xpath = "//button[@class='swal-button swal-button--confirm swal-button--danger']")
     WebElement ok_confirmDelete;
+    @FindBy(xpath = "//li[@class='dropdown user user-menu']//a[@class='dropdown-toggle']")
+    WebElement userName;
+    @FindBy(xpath = "//div[@class='pull-right']//a[@class='btn btn-default btn-flat']")
+    WebElement signOutButton;
+    @FindBy(xpath = "//span[text()='User Management']")
+    WebElement userManagementMenu;
+    @FindBy(xpath = "//ul[@class='treeview-menu menu-open']//span[@class='title']")
+    List<WebElement> userManagementOptions;
+
      public String getPageTitle(){
         String title=page.getPageTitle(driver);
         return title;
@@ -61,5 +72,30 @@ public class RolePage extends ObjectUtility {
          page.clickOnElement(editRole);
          return new EditRolePage(driver);
      }
+     public void clickOnUsername(){
+         wait.hardWait(5000);
+         page.clickOnElement(userName);
+     }
+     public LoginPage clickOnSignOutButton(){
+         wait.waitUntilVisibilityOfElement(500,driver,signOutButton);
+         page.clickOnElement(signOutButton);
+         return new LoginPage(driver);
+     }
+    public void clickOnUserManagementMenu() {
+        wait.waitUntilVisibilityOfElement(500, driver, userManagementMenu);
+        page.clickOnElement(userManagementMenu);
+        wait.hardWait(5000);
 
+    }
+    public UsersPage clickOnUserMenu() {
+        for(int i=0;i< userManagementOptions.size();i++){
+            wait.waitUntilVisibilityOfElement(500,driver,userManagementOptions.get(i));
+            String value=page.getElementText(userManagementOptions.get(i));
+            if(value.equalsIgnoreCase("Users")){
+                page.clickOnElement(userManagementOptions.get(i));
+            }
+            wait.hardWait(10000);
+        }
+        return new UsersPage(driver);
+    }
 }

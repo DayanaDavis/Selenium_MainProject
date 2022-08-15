@@ -1,6 +1,7 @@
 package com.buffaloCart.utilities;
 
 import com.github.javafaker.Faker;
+import com.github.javafaker.PhoneNumber;
 
 public class FakerUtility {
     Faker faker=new Faker();
@@ -25,12 +26,25 @@ public class FakerUtility {
         return password;
     }
     public String decimalValue(){
-        double num=faker.number().randomDouble(2,1,75);
+        double num=faker.number().randomDouble(2,2,75);
         String value= String.valueOf(num);
         return value;
     }
     public String jobTitle(){
         String role=faker.job().position();
         return role;
+    }
+    public String prefix(){
+        String pre=faker.name().prefix();
+        return pre;
+    }
+
+    public  String contactNumber(){
+         String num=faker.phoneNumber().cellPhone();
+        return num;
+    }
+    public String address(){
+        String add=faker.address().fullAddress();
+        return add;
     }
 }

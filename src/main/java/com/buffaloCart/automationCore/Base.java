@@ -1,5 +1,6 @@
 package com.buffaloCart.automationCore;
 
+import com.buffaloCart.constants.Constant;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -14,11 +15,29 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 public class Base {
     public WebDriver driver;
+    public FileInputStream fis;
+    public Properties prop;
+    public Base(){
+        try {
+            fis=new FileInputStream(System.getProperty("user.dir")+ Constant.CONFIG_FILE);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        prop=new Properties();
+        try {
+            prop.load(fis);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void testInitialize(String browser,String url){
         if(browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();//driver.exe download
@@ -43,8 +62,9 @@ public class Base {
     }
     @BeforeMethod(alwaysRun = true)
     @Parameters({"browser"})
-    public void setUp(String browserName) {
-        testInitialize(browserName,"https://qalegend.com/billing/public/login");
+    public void setUp(String browseName) {
+        String baseurl= prop.getProperty("url");
+        testInitialize(browseName,baseurl);
     }
     @AfterMethod
     public void tearDown(ITestResult result) throws IOException {
@@ -53,6 +73,6 @@ public class Base {
             File screenshot = scrshot.getScreenshotAs(OutputType.FILE);
             FileUtils.copyFile(screenshot,new File("./Screenshots/"+result.getName()+".png"));
         }
-       driver.quit();
+      driver.quit();
     }
 }

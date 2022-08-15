@@ -34,7 +34,6 @@ public class WaitUtility {
     }
 
 
-
     public void fluentWait(long time, long ftime, WebDriver driver, WebElement element) {
         Wait wait = new FluentWait(driver)
                 .withTimeout(Duration.ofSeconds(time))

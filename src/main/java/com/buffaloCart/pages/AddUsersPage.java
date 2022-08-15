@@ -64,6 +64,15 @@ public class AddUsersPage extends ObjectUtility {
         page.clickOnElement(role.get(index));
         return job;
     }
+    public void selectNewlyAddedRole(String newJob){
+        for (int i=0;i< role.size();i++){
+            String job=page.getElementText(role.get(i));
+            if(job.equalsIgnoreCase(newJob)){
+                page.clickOnElement(role.get(i));
+            }
+        }
+
+    }
 
     public void enterUserName(String name) {
         wait.waitUntilVisibilityOfElement(500, driver, uName);
