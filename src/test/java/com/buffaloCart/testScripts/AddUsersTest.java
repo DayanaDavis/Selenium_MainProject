@@ -125,7 +125,6 @@ public class AddUsersTest extends Base {
         String email=faker.eMail();
         addUser.enterEmail(email);
         String job=addUser.selectRole();
-        System.out.println(job);
         String uName=faker.userName();
         addUser.enterUserName(uName);
         String pass=faker.passWord();

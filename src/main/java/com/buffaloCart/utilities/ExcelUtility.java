@@ -1,5 +1,6 @@
 package com.buffaloCart.utilities;
 
+import com.buffaloCart.constants.Constant;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class ExcelUtility {
     public String readSingleData(int i, int j, String sheetname) {
-        String filepath = System.getProperty("user.dir") + "\\src\\main\\resources\\TestData.xlsx";
+        String filepath = System.getProperty("user.dir") + Constant.EXCEL_FILE;
         FileInputStream inputStream = null;
         try {
             inputStream = new FileInputStream(filepath);
@@ -58,7 +59,7 @@ public class ExcelUtility {
     }
 
     public List<ArrayList<String>> getExcelAs2DList(String sheetName){
-        String filepath = System.getProperty("user.dir") + "\\src\\main\\resources\\TestData.xlsx";
+        String filepath = System.getProperty("user.dir") + Constant.EXCEL_FILE;
         FileInputStream file = null;
         try {
             file = new FileInputStream(filepath);

@@ -62,6 +62,7 @@ public class HomePage extends ObjectUtility {
     }
 
     public void clickOnEndTour() {
+        wait.waitUntilVisibilityOfElement(500,driver,endTour);
         page.clickOnElement(endTour);
     }
 
