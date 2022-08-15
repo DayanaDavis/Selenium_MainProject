@@ -33,12 +33,12 @@ public class LoginPage extends ObjectUtility {
     }
 
     public void enterUsername(String name) {
-        wait.waitUntilVisibilityOfElement(500, driver, userName);
+        wait.waitUntilVisibilityOfElement(50, driver, userName);
         page.enterText(userName, name);
     }
 
     public void enterPassword(String pass) {
-        wait.waitUntilVisibilityOfElement(500,driver,password);
+        wait.waitUntilVisibilityOfElement(50,driver,password);
         page.enterText(password, pass);
     }
 

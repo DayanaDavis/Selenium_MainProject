@@ -59,71 +59,71 @@ public class SalesCommissionPage extends ObjectUtility {
         return title;
     }
     public void clickOnAddSalesAgent(){
-        wait.waitUntilVisibilityOfElement(500,driver,addSalesAgentButton);
+        wait.waitUntilVisibilityOfElement(50,driver,addSalesAgentButton);
         page.clickOnElement(addSalesAgentButton);
     }
     public void clickOnDeleteButton(){
-        wait.waitUntilVisibilityOfElement(500,driver,deleteButton);
+        wait.waitUntilVisibilityOfElement(50,driver,deleteButton);
         page.clickOnElement(deleteButton);
-        wait.waitUntilVisibilityOfElement(500,driver,okButton);
+        wait.waitUntilVisibilityOfElement(50,driver,okButton);
         page.clickOnElement(okButton);
 
     }
     public void clickOnEditButton(){
-        wait.waitUntilVisibilityOfElement(500,driver,editButton);
+        wait.waitUntilVisibilityOfElement(50,driver,editButton);
         page.clickOnElement(editButton);
     }
     public void enterPrefix(String prefixValue){
-        wait.waitUntilVisibilityOfElement(500,driver,prefix);
+        wait.waitUntilVisibilityOfElement(50,driver,prefix);
         page.enterText(prefix,prefixValue);
     }
     public void enterFirstName(String name){
-        wait.waitUntilVisibilityOfElement(500,driver,firstName);
+        wait.waitUntilVisibilityOfElement(50,driver,firstName);
         page.enterText(firstName,name);
     }
     public void enterLastName(String name){
-        wait.waitUntilVisibilityOfElement(500,driver,lastName);
+        wait.waitUntilVisibilityOfElement(50,driver,lastName);
         page.enterText(lastName,name);
     }
     public void enterEmail(String emailId){
-        wait.waitUntilVisibilityOfElement(500,driver,email);
+        wait.waitUntilVisibilityOfElement(50,driver,email);
         page.enterText(email,emailId);
     }
     public void enterContactNo(String num){
-        wait.waitUntilVisibilityOfElement(500,driver,contact);
+        wait.waitUntilVisibilityOfElement(50,driver,contact);
         page.enterText(contact,num);
     }
     public void enterAddress(String addressData){
-        wait.waitUntilVisibilityOfElement(500,driver,address);
+        wait.waitUntilVisibilityOfElement(50,driver,address);
         page.enterText(address,addressData);
     }
     public void enterSalesCommission(String comm){
-        wait.waitUntilVisibilityOfElement(500,driver,salesPercentage);
+        wait.waitUntilVisibilityOfElement(50,driver,salesPercentage);
         page.enterText(salesPercentage,comm);
     }
     public void clickOnSaveButton(){
-        wait.waitUntilVisibilityOfElement(500,driver,saveButton);
+        wait.waitUntilVisibilityOfElement(50,driver,saveButton);
         page.clickOnElement(saveButton);
-        wait.hardWait(10000);
+        wait.hardWait(5000);
     }
     public void enterSearchValue(String searchValue){
-        wait.waitUntilVisibilityOfElement(500,driver,search);
+        wait.waitUntilVisibilityOfElement(50,driver,search);
         page.clearText(search);
         page.enterText(search,searchValue);
         wait.hardWait(5000);
     }
     public List<ArrayList<String>> getSalesAgentTableData(){
-        wait.hardWait(10000);
+        wait.hardWait(5000);
         List<ArrayList<String>> tableData1=table.getGridData(rowElement,cellElement);
     return tableData1;
     }
     public String getErrorMsgForNonExistingData(){
-        wait.waitUntilVisibilityOfElement(500,driver,error_NoMatchingRecord);
+        wait.waitUntilVisibilityOfElement(50,driver,error_NoMatchingRecord);
         String error=page.getElementText(error_NoMatchingRecord);
         return error;
     }
     public void editContact(String num){
-        wait.waitUntilVisibilityOfElement(500,driver,contact);
+        wait.waitUntilVisibilityOfElement(50,driver,contact);
         page.clearText(contact);
         page.enterText(contact,num);
     }

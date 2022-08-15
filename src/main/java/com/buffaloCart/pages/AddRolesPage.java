@@ -26,17 +26,17 @@ public class AddRolesPage extends ObjectUtility {
         return title;
     }
     public void enterRole(String role){
-        wait.waitUntilVisibilityOfElement(500,driver,roleName);
+        wait.waitUntilVisibilityOfElement(50,driver,roleName);
         page.enterText(roleName,role);
     }
     public void givePermission(){
         for (int i=0;i<permission.size();i++){
-            wait.waitUntilVisibilityOfElement(500,driver,permission.get(i));
+            wait.waitUntilVisibilityOfElement(50,driver,permission.get(i));
             page.clickOnElement(permission.get(i));
         }
     }
     public RolePage clickOnSaveButton(){
-        wait.waitUntilVisibilityOfElement(500,driver,saveButton);
+        wait.waitUntilVisibilityOfElement(50,driver,saveButton);
         page.clickOnElement(saveButton);
         wait.hardWait(5000);
         return new RolePage(driver);

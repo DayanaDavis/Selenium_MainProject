@@ -21,12 +21,12 @@ public class EditRolePage extends ObjectUtility {
         return title;
     }
     public void editRoleTitle(String job){
-        wait.waitUntilVisibilityOfElement(500,driver,roleField);
+        wait.waitUntilVisibilityOfElement(50,driver,roleField);
         page.clearText(roleField);
         page.enterText(roleField,job);
     }
     public RolePage clickOnUpdateButton(){
-        wait.waitUntilVisibilityOfElement(500,driver,updateButton);
+        wait.waitUntilVisibilityOfElement(50,driver,updateButton);
         page.clickOnElement(updateButton);
         return new RolePage(driver);
     }
