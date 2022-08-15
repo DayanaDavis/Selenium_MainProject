@@ -21,14 +21,14 @@ public class EditUserPage extends ObjectUtility {
         return title;
     }
     public String editLastName(){
-        wait.waitUntilVisibilityOfElement(500,driver,lastName);
+        wait.waitUntilVisibilityOfElement(50,driver,lastName);
         page.clearText(lastName);
         String lName= faker.lastName();
         page.enterText(lastName,lName);
         return lName;
     }
     public UsersPage clickOnUpdateButton(){
-        wait.waitUntilVisibilityOfElement(500,driver,updateButton);
+        wait.waitUntilVisibilityOfElement(50,driver,updateButton);
         page.clickOnElement(updateButton);
         return new UsersPage(driver);
     }

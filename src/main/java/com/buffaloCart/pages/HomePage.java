@@ -51,25 +51,27 @@ public class HomePage extends ObjectUtility {
     }
 
     public void clickOnHomePageUserName() {
-        wait.waitUntilVisibilityOfElement(500, driver, userName);
+        wait.waitUntilVisibilityOfElement(50, driver, userName);
         page.clickOnElement(userName);
     }
 
     public LoginPage clickOnSignOutButton() {
-        wait.waitUntilVisibilityOfElement(500, driver, signOutButton);
+        wait.waitUntilVisibilityOfElement(50, driver, signOutButton);
         page.clickOnElement(signOutButton);
         return new LoginPage(driver);
     }
 
     public void clickOnEndTour() {
-        wait.waitUntilVisibilityOfElement(500,driver,endTour);
-        page.clickOnElement(endTour);
+        wait.hardWait(2000);
+        if(endTour.isDisplayed()){
+            page.clickOnElement(endTour);
+        }
     }
 
     public void clickOnUserManagementMenu() {
-        wait.waitUntilVisibilityOfElement(500, driver, userManagementMenu);
+        wait.waitUntilVisibilityOfElement(50, driver, userManagementMenu);
         page.clickOnElement(userManagementMenu);
-        wait.hardWait(10000);
+        wait.hardWait(5000);
 
     }
 
@@ -77,7 +79,7 @@ public class HomePage extends ObjectUtility {
         System.out.println(userManagementOptions.size());
         List<String> values=new ArrayList<String>();
         for (int i = 0; i < userManagementOptions.size(); i++) {
-            wait.waitUntilVisibilityOfElement(500, driver, userManagementOptions.get(i));
+            wait.waitUntilVisibilityOfElement(50, driver, userManagementOptions.get(i));
             values.add(page.getElementText(userManagementOptions.get(i)));
         }
         return values;
@@ -85,18 +87,18 @@ public class HomePage extends ObjectUtility {
 
     public UsersPage clickOnUserMenu() {
         for(int i=0;i< userManagementOptions.size();i++){
-            wait.waitUntilVisibilityOfElement(500,driver,userManagementOptions.get(i));
+            wait.waitUntilVisibilityOfElement(50,driver,userManagementOptions.get(i));
             String value=page.getElementText(userManagementOptions.get(i));
             if(value.equalsIgnoreCase("Users")){
                 page.clickOnElement(userManagementOptions.get(i));
             }
-        wait.hardWait(10000);
+        wait.hardWait(5000);
         }
         return new UsersPage(driver);
     }
     public RolePage clickOnRoles(){
         for(int i=0;i< userManagementOptions.size();i++){
-            wait.waitUntilVisibilityOfElement(500,driver,userManagementOptions.get(i));
+            wait.waitUntilVisibilityOfElement(50,driver,userManagementOptions.get(i));
             String value=page.getElementText(userManagementOptions.get(i));
             if(value.equalsIgnoreCase("Roles")){
                 page.clickOnElement(userManagementOptions.get(i));
@@ -106,7 +108,7 @@ public class HomePage extends ObjectUtility {
     }
     public SalesCommissionPage clickOnSalesCommission(){
         for(int i=0;i< userManagementOptions.size();i++){
-            wait.waitUntilVisibilityOfElement(500,driver,userManagementOptions.get(i));
+            wait.waitUntilVisibilityOfElement(50,driver,userManagementOptions.get(i));
             String value=page.getElementText(userManagementOptions.get(i));
             if(value.equalsIgnoreCase("Sales Commission Agents")){
                 page.clickOnElement(userManagementOptions.get(i));

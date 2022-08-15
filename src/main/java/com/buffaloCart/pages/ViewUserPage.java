@@ -21,7 +21,7 @@ public class ViewUserPage extends ObjectUtility {
     @FindBy(xpath = "//div[@class='row']//div[@class='col-md-6']//p")
     List<WebElement> userPageInformation;
     public List<String> getUserPageDetails(){
-        wait.waitUntilVisibilityOfElement(500,driver,profileName);
+        wait.waitUntilVisibilityOfElement(50,driver,profileName);
         List<String> userInfo=new ArrayList<String>();
         for(int i=0;i<userPageInformation.size();i++){
             userInfo.add(page.getElementText(userPageInformation.get(i)));

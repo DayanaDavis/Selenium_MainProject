@@ -48,16 +48,16 @@ public class UsersPage extends ObjectUtility {
     }
 
     public AddUsersPage clickOnAddUsers() {
-        wait.waitUntilVisibilityOfElement(1000, driver, Add);
+        wait.waitUntilVisibilityOfElement(50, driver, Add);
         page.clickOnElement(Add);
-        wait.hardWait(20000);
+        wait.hardWait(5000);
         return new AddUsersPage(driver);
     }
 
     public void enterSearchValue(String email) {
-        wait.waitUntilVisibilityOfElement(500,driver,search);
+        wait.waitUntilVisibilityOfElement(50,driver,search);
         page.enterText(search, email);
-        wait.hardWait(10000);
+        wait.hardWait(5000);
     }
 
     public List<ArrayList<String>> getTableData(){
@@ -66,33 +66,33 @@ public class UsersPage extends ObjectUtility {
     }
 
     public String getErrorMsgForInvalidUser(){
-        wait.waitUntilVisibilityOfElement(500,driver,invalidUserErrorMsg);
+        wait.waitUntilVisibilityOfElement(50,driver,invalidUserErrorMsg);
         String msg=page.getElementText(invalidUserErrorMsg);
         return msg;
     }
     public EditUserPage clickOnEdit(){
-        wait.waitUntilVisibilityOfElement(500,driver,edit);
+        wait.waitUntilVisibilityOfElement(50,driver,edit);
         page.clickOnElement(edit);
         return new EditUserPage(driver);
     }
     public void clickOnDeleteUser(){
-        wait.waitUntilVisibilityOfElement(500,driver,deleteUser);
+        wait.waitUntilVisibilityOfElement(50,driver,deleteUser);
         page.clickOnElement(deleteUser);
     }
     public void clickOnOK_confirmDeletion(){
-        wait.waitUntilVisibilityOfElement(500,driver,oK_confirmDelete);
+        wait.waitUntilVisibilityOfElement(50,driver,oK_confirmDelete);
         page.clickOnElement(oK_confirmDelete);
     }
     public ViewUserPage clickOnViewUser(){
-        wait.waitUntilVisibilityOfElement(500,driver,view_userInformation);
+        wait.waitUntilVisibilityOfElement(50,driver,view_userInformation);
         page.clickOnElement(view_userInformation);
         return new ViewUserPage(driver);
     }
 
     public LoginPage clickOnSignOutButton(){
-        wait.hardWait(10000);
+        wait.hardWait(5000);
         page.clickUsingJavaScript(driver,userName);
-        wait.waitUntilVisibilityOfElement(500,driver,signOutButton);
+        wait.waitUntilVisibilityOfElement(50,driver,signOutButton);
         page.clickOnElement(signOutButton);
         return new LoginPage(driver);
     }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BuffaloCart">
+
+    <test name="Regression">
+        <parameter name="browser" value="chrome"></parameter>
+        <groups>
+            <run>
+                <include name="smoke"/>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.buffaloCart.testScripts.LoginPageTest"/>
+            <class name="com.buffaloCart.testScripts.HomePageTest"/>
+            <class name="com.buffaloCart.testScripts.RolePageTest"/>
+            <class name="com.buffaloCart.testScripts.AddRolesTest"/>
+            <class name="com.buffaloCart.testScripts.EditRoleTest"/>
+            <class name="com.buffaloCart.testScripts.EditUserPageTest"/>
+            <class name="com.buffaloCart.testScripts.UserPageTest"/>
+            <class name="com.buffaloCart.testScripts.AddUsersTest"/>
+            <class name="com.buffaloCart.testScripts.SalesCommissionTest"/>
+            <class name="com.buffaloCart.testScripts.ViewUserTest"/>
+
+        </classes>
+    </test>
+</suite>

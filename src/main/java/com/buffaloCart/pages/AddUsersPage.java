@@ -43,12 +43,12 @@ public class AddUsersPage extends ObjectUtility {
     }
 
     public void enterFirstName(String name) {
-        wait.waitUntilVisibilityOfElement(500, driver, fName);
+        wait.waitUntilVisibilityOfElement(50, driver, fName);
         page.enterText(fName, name);
     }
 
     public void enterLastName(String name) {
-        wait.waitUntilVisibilityOfElement(500, driver, lName);
+        wait.waitUntilVisibilityOfElement(50, driver, lName);
         page.enterText(lName, name);
     }
 
@@ -59,7 +59,7 @@ public class AddUsersPage extends ObjectUtility {
     public String selectRole() {
         Random rand = new Random();
         int index = rand.nextInt(role.size());
-        wait.waitUntilVisibilityOfElement(500, driver, role.get(index));
+        wait.waitUntilVisibilityOfElement(50, driver, role.get(index));
         String job = page.getElementText(role.get(index));
         page.clickOnElement(role.get(index));
         return job;
@@ -75,33 +75,33 @@ public class AddUsersPage extends ObjectUtility {
     }
 
     public void enterUserName(String name) {
-        wait.waitUntilVisibilityOfElement(500, driver, uName);
+        wait.waitUntilVisibilityOfElement(50, driver, uName);
         page.enterText(uName, name);
     }
 
     public void enterPassword(String pass) {
-        wait.waitUntilVisibilityOfElement(500, driver, password);
+        wait.waitUntilVisibilityOfElement(50, driver, password);
         page.enterText(password, pass);
     }
 
     public void enterConfirmPass(String pass) {
-        wait.waitUntilVisibilityOfElement(500, driver, confirmPassword);
+        wait.waitUntilVisibilityOfElement(50, driver, confirmPassword);
         page.enterText(confirmPassword, pass);
     }
 
     public UsersPage clickOnSaveButton() {
-        wait.waitUntilVisibilityOfElement(500, driver, saveButton);
+        wait.waitUntilVisibilityOfElement(50, driver, saveButton);
         page.clickOnElement(saveButton);
         return new UsersPage(driver);
     }
 
     public String getEmailErrorMsg() {
-        wait.waitUntilVisibilityOfElement(500, driver, emailError);
+        wait.waitUntilVisibilityOfElement(50, driver, emailError);
         String msg = page.getElementText(emailError);
         return msg;
     }
     public String enterSalesPercentage(){
-        wait.waitUntilVisibilityOfElement(500,driver,salesCommission);
+        wait.waitUntilVisibilityOfElement(50,driver,salesCommission);
        String percentage= faker.decimalValue();
         page.enterText(salesCommission,percentage);
         return percentage;

@@ -22,6 +22,7 @@ public class ResetPasswordPage extends ObjectUtility {
     WebElement errorMessage;
 
     public void enterEmailAddress(String emailId) {
+        wait.waitUntilVisibilityOfElement(50,driver,email);
         page.enterText(email, emailId);
     }
 
@@ -30,6 +31,7 @@ public class ResetPasswordPage extends ObjectUtility {
     }
 
     public String getErrorMessageOfInvalidEmail() {
+        wait.waitUntilVisibilityOfElement(50,driver,errorMessage);
         String message = page.getElementText(errorMessage);
         return message;
     }

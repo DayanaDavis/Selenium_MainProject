@@ -42,33 +42,33 @@ public class RolePage extends ObjectUtility {
         return title;
      }
      public AddRolesPage clickOnAddRole(){
-         wait.waitUntilVisibilityOfElement(1000,driver,addRole);
+         wait.waitUntilVisibilityOfElement(50,driver,addRole);
          page.clickOnElement(addRole);
          return new AddRolesPage(driver);
      }
      public void enterValueOnSearch(String value){
-         wait.waitUntilElementIsClickable(500,driver,search);
+         wait.waitUntilElementIsClickable(50,driver,search);
          page.enterText(search,value);
          wait.hardWait(5000);
      }
      public String getRole(){
-         wait.waitUntilVisibilityOfElement(500,driver,job);
+         wait.waitUntilVisibilityOfElement(50,driver,job);
          String jobs=page.getElementText(job);
          return jobs;
      }
      public void clickOnDeleteRole(){
-         wait.waitUntilVisibilityOfElement(500,driver,delete);
+         wait.waitUntilVisibilityOfElement(50,driver,delete);
          page.clickOnElement(delete);
-         wait.waitUntilVisibilityOfElement(500,driver,ok_confirmDelete);
+         wait.waitUntilVisibilityOfElement(50,driver,ok_confirmDelete);
          page.clickOnElement(ok_confirmDelete);
      }
      public String getErrorMsgForNoRoleFound(){
-         wait.waitUntilVisibilityOfElement(500,driver,error_NoRole);
+         wait.waitUntilVisibilityOfElement(50,driver,error_NoRole);
          String msg=page.getElementText(error_NoRole);
          return msg;
      }
      public EditRolePage clickOnEditButton(){
-         wait.waitUntilVisibilityOfElement(500,driver,editRole);
+         wait.waitUntilVisibilityOfElement(50,driver,editRole);
          page.clickOnElement(editRole);
          return new EditRolePage(driver);
      }
@@ -77,24 +77,24 @@ public class RolePage extends ObjectUtility {
          page.clickOnElement(userName);
      }
      public LoginPage clickOnSignOutButton(){
-         wait.waitUntilVisibilityOfElement(500,driver,signOutButton);
+         wait.waitUntilVisibilityOfElement(50,driver,signOutButton);
          page.clickOnElement(signOutButton);
          return new LoginPage(driver);
      }
     public void clickOnUserManagementMenu() {
-        wait.waitUntilVisibilityOfElement(500, driver, userManagementMenu);
+        wait.waitUntilVisibilityOfElement(50, driver, userManagementMenu);
         page.clickOnElement(userManagementMenu);
         wait.hardWait(5000);
 
     }
     public UsersPage clickOnUserMenu() {
         for(int i=0;i< userManagementOptions.size();i++){
-            wait.waitUntilVisibilityOfElement(500,driver,userManagementOptions.get(i));
+            wait.waitUntilVisibilityOfElement(50,driver,userManagementOptions.get(i));
             String value=page.getElementText(userManagementOptions.get(i));
             if(value.equalsIgnoreCase("Users")){
                 page.clickOnElement(userManagementOptions.get(i));
             }
-            wait.hardWait(10000);
+            wait.hardWait(5000);
         }
         return new UsersPage(driver);
     }
